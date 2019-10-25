@@ -33,7 +33,12 @@ const echo = new Echo()
 const WIF = '5J3UbadSyzzcQQ7HEfTr2brhJJpHhx3NsMzrvgzfysBesutNRCm'
 const ACCOUNT_NAME = 'dima'
 
-const PORT = 3000
+var PORT = 8080
+
+if (process.env.NODE_ENV !== 'production') {
+    PORT = 3000
+} 
+
 const app = express();
 
 app.use(bodyParser.json());
