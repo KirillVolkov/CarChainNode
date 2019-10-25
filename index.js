@@ -26,7 +26,7 @@ const echo = new Echo()
 const WIF = '5J3UbadSyzzcQQ7HEfTr2brhJJpHhx3NsMzrvgzfysBesutNRCm'
 const ACCOUNT_NAME = 'dima'
 
-const PORT = process.env.ENV_PORT,
+const PORT = process.env.ENV_PORT;
 
 const app = express();
 
