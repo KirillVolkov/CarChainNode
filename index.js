@@ -10,20 +10,13 @@ const { Echo, PrivateKey, Contract } = require('echojs-lib');
 const mysql = require('mysql');
 const util = require('util');
 require('util.promisify').shim();
-
-var mysqlHost = "localhost";
-var mysqlUser = "sammy"
-var mysqlPassword = "password";
-
-if (process.env.NODE_ENV !== 'production') {
-    mysqlUser = "root";
-}
+require('dotenv').load();
 
 const con = mysql.createConnection({
-  host: mysqlHost,
-  user: mysqlUser,
-  password: mysqlPassword,
-  insecureAuth: true
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: rocess.env.MYSQL_PASSWORD,
+  insecureAuth: rocess.env.INSECURE_AUTH
 });
 
 const dbQuery = util.promisify(con.query).bind(con);
@@ -33,11 +26,7 @@ const echo = new Echo()
 const WIF = '5J3UbadSyzzcQQ7HEfTr2brhJJpHhx3NsMzrvgzfysBesutNRCm'
 const ACCOUNT_NAME = 'dima'
 
-var PORT = 8080
-
-if (process.env.NODE_ENV !== 'production') {
-    PORT = 3000
-} 
+const PORT = process.env.ENV_PORT,
 
 const app = express();
 
