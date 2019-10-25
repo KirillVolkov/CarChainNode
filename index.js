@@ -11,10 +11,18 @@ const mysql = require('mysql');
 const util = require('util');
 require('util.promisify').shim();
 
+var mysqlHost = "localhost";
+var mysqlUser = "sammy"
+var mysqlPassword = "password";
+
+if (process.env.NODE_ENV !== 'production') {
+    mysqlUser = "root";
+}
+
 const con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
+  host: mysqlHost,
+  user: mysqlUser,
+  password: mysqlPassword,
   insecureAuth: true
 });
 
