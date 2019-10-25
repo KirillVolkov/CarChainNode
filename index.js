@@ -9,14 +9,16 @@ const { Echo, PrivateKey, Contract } = require('echojs-lib');
 
 const mysql = require('mysql');
 const util = require('util');
+
 require('util.promisify').shim();
-require('dotenv').load();
+
+require('dotenv').config();
 
 const con = mysql.createConnection({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
-  password: rocess.env.MYSQL_PASSWORD,
-  insecureAuth: rocess.env.INSECURE_AUTH
+  password: process.env.MYSQL_PASSWORD,
+  insecureAuth: process.env.INSECURE_AUTH
 });
 
 const dbQuery = util.promisify(con.query).bind(con);
