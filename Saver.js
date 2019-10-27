@@ -20,19 +20,16 @@ class Saver {
     var result = ''
     if (this.precedent != undefined) {
       const jsonStr = JSON.stringify(this.precedent)
-
+   //   console.log('JSON ' + jsonStr)
       const stringHash = await hasha(jsonStr, { algorithm: 'sha256' })
-
+   //   console.log('JSON HASH ' + stringHash)
       result = await hasha(stringHash + hash, { algorithm: 'sha256' })
-
+   //   console.log('FILE HASH '+ hash)
     } else {
       result = hash
     }
-
     await rename(filepath, this.filepath(result + '.png'));
-
     return result;
-
   }
 
   static filename() {

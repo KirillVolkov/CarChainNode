@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bitcoin-core": "^3.0.0",
     "body-parser": "^1.19.0",
+    "cli-color": "^2.0.0",
+    "echojs-contract": "^0.4.9",
     "echojs-lib": "^1.9.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
